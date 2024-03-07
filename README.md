@@ -7,3 +7,7 @@ i have never been into games and the only time i spent on them was while reading
 -Added kyboard events functionality (snippet copied and pasted from https://kivy.org/doc/stable/api-kivy.core.window.html)
 
 -added a square representing the area where the snake is allowed to move
+
+-added fixed square representing the initial snake
+
+-added button to start the game
