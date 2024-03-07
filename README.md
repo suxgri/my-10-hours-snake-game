@@ -13,3 +13,5 @@ i have never been into games and the only time i spent on them was while reading
 -added button to start the game
 
 -added movement to snake
+
+-allow snake movements within boundaries

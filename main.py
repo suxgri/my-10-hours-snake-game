@@ -41,17 +41,44 @@ class MyKeyboardListener(Widget):
         
         x,y = self.snake.pos
 
-        if movedirection == 'right':
+        if movedirection == 'right' and self.canmove(movedirection):
             self.snake.pos = (x+40,y)
-        elif movedirection == 'left':
+        elif movedirection == 'left' and self.canmove(movedirection):
             self.snake.pos = (x-40,y)
-        elif movedirection == 'up':
+        elif movedirection == 'up' and self.canmove(movedirection):
             self.snake.pos = (x,y+40)
-        elif movedirection == 'down':
+        elif movedirection == 'down' and self.canmove(movedirection):
             self.snake.pos = (x,y-40)
         else:
             print("skip")
 
+    def canmove(self,direction):
+       
+        x,y = self.snake.pos
+
+        if direction == 'right' and x<840:
+            if x<840:
+                return True
+            else:
+                return False
+        elif direction == 'left':
+            if x>100:
+                return True
+            else:
+                return False
+        elif direction == 'up':
+            if y<840:
+                return True
+            else:
+                return False
+        elif direction == 'down':
+            if y>100:
+                return True
+            else:
+                return False
+        else:
+            return False
+        
 if __name__ == '__main__':
     from kivy.base import runTouchApp
     runTouchApp(MyKeyboardListener())
