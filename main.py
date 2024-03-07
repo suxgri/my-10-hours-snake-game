@@ -1,7 +1,7 @@
 import kivy
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
-
+from kivy.graphics.vertex_instructions import Line
 
 class MyKeyboardListener(Widget):
 
@@ -14,6 +14,8 @@ class MyKeyboardListener(Widget):
             # to change the keyboard layout.
             pass
         self._keyboard.bind(on_key_down=self._on_keyboard_down)
+        with self.canvas:
+            Line(rectangle=[100, 100, 800, 800],width=3)
 
     def _keyboard_closed(self):
         print('My keyboard have been closed!')

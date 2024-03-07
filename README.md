@@ -5,3 +5,5 @@ I decided to take a couple of days free from Laravel to play with some python ba
 i have never been into games and the only time i spent on them was while reading the book Eloquent Javascript ch.16 A Platform Game.
 
 -Added kyboard events functionality (snippet copied and pasted from https://kivy.org/doc/stable/api-kivy.core.window.html)
+
+-added a square representing the area where the snake is allowed to move
