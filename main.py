@@ -3,8 +3,15 @@ from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.graphics.vertex_instructions import Line, Rectangle
+from kivy.clock import Clock
 
 class MyKeyboardListener(Widget):
+
+    isplaying = False
+    haslost = False
+    INTERVAL = 0.45
+    shouldmove = 'right'
+    currentdirection = 'horizontal'
 
     def __init__(self, **kwargs):
         super(MyKeyboardListener, self).__init__(**kwargs)
@@ -26,7 +33,10 @@ class MyKeyboardListener(Widget):
             self.snake = Rectangle(pos=(100,100),size=(40,40))
 
     def start(self,_):
-        print("start")
+    
+        if self.isplaying == False:
+            self.isplaying = True
+            self.timer = Clock.schedule_interval(self.move, self.INTERVAL)
 
     def _keyboard_closed(self):
         print('My keyboard have been closed!')
@@ -34,20 +44,20 @@ class MyKeyboardListener(Widget):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
-        self.move(keycode[1])
+        
         return True
     
-    def move(self,movedirection):
+    def move(self,dt):
         
         x,y = self.snake.pos
 
-        if movedirection == 'right' and self.canmove(movedirection):
+        if self.shouldmove == 'right' and self.canmove(self.shouldmove):
             self.snake.pos = (x+40,y)
-        elif movedirection == 'left' and self.canmove(movedirection):
+        elif self.shouldmove == 'left' and self.canmove(self.shouldmove):
             self.snake.pos = (x-40,y)
-        elif movedirection == 'up' and self.canmove(movedirection):
+        elif self.shouldmove == 'up' and self.canmove(self.shouldmove):
             self.snake.pos = (x,y+40)
-        elif movedirection == 'down' and self.canmove(movedirection):
+        elif self.shouldmove == 'down' and self.canmove(self.shouldmove):
             self.snake.pos = (x,y-40)
         else:
             print("skip")

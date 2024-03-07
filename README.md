@@ -12,6 +12,9 @@ i have never been into games and the only time i spent on them was while reading
 
 -added button to start the game
 
--added movement to snake
+-added movement (with keypresses) to snake
 
 -allow snake movements within boundaries
+
+-add continuous movement to snake with kivy clock.
+At the moment the hardcoded right direction is applied every n seconds to the snake that is stopped by the boundary collision.
