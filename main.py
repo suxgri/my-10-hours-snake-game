@@ -60,8 +60,26 @@ class MyKeyboardListener(Widget):
         elif self.shouldmove == 'down' and y>100:
             self.snake.pos = (x,y-40)
         else:
-            #lose
-            print('lost')
+            self.setLost()
+
+    def setLost(self):
+        Clock.unschedule(self.timer)
+        self.isplaying = False
+        self.haslost = True
+        
+        self.canvas.clear()
+        startGame = Button(text='start game',
+                            on_press=self.start,
+                            size=(200,50),
+                            pos=(750,1050))
+        lostButton = Button(text='YOU HAVE LOST !',
+                            size=(300,70),
+                            pos=(250,1050))
+        self.add_widget(startGame)
+        self.add_widget(lostButton)
+        with self.canvas:
+            Line(rectangle=[100, 100, 800, 800],width=3)
+            self.snake = Rectangle(pos=(100,100),size=(40,40))
 
 
 if __name__ == '__main__':

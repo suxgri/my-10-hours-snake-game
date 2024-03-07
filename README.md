@@ -20,3 +20,5 @@ i have never been into games and the only time i spent on them was while reading
 At the moment the hardcoded right direction is applied every n seconds to the snake that is stopped by the boundary collision.
 
 -removed unnecessary canmove() method
+
+-implemented game lost mechanism, when the snake next move collides with border the game is lost
