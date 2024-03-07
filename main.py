@@ -22,8 +22,8 @@ class MyKeyboardListener(Widget):
                             pos=(750,1050))
         self.add_widget(startGame)
         with self.canvas:
-            Line(rectangle=[100, 100, 800, 800],width=3)
-            Rectangle(pos=(100,100),size=(40,40))
+            Line(rectangle = [100, 100, 800, 800],width=3)
+            self.snake = Rectangle(pos=(100,100),size=(40,40))
 
     def start(self,_):
         print("start")
@@ -34,9 +34,23 @@ class MyKeyboardListener(Widget):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
-        
+        self.move(keycode[1])
         return True
+    
+    def move(self,movedirection):
+        
+        x,y = self.snake.pos
 
+        if movedirection == 'right':
+            self.snake.pos = (x+40,y)
+        elif movedirection == 'left':
+            self.snake.pos = (x-40,y)
+        elif movedirection == 'up':
+            self.snake.pos = (x,y+40)
+        elif movedirection == 'down':
+            self.snake.pos = (x,y-40)
+        else:
+            print("skip")
 
 if __name__ == '__main__':
     from kivy.base import runTouchApp

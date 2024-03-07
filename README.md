@@ -11,3 +11,5 @@ i have never been into games and the only time i spent on them was while reading
 -added fixed square representing the initial snake
 
 -added button to start the game
+
+-added movement to snake
