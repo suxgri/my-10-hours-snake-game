@@ -18,3 +18,5 @@ i have never been into games and the only time i spent on them was while reading
 
 -add continuous movement to snake with kivy clock.
 At the moment the hardcoded right direction is applied every n seconds to the snake that is stopped by the boundary collision.
+
+-removed unnecessary canmove() method
