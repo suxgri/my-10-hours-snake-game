@@ -22,3 +22,5 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -removed unnecessary canmove() method
 
 -implemented game lost mechanism, when the snake next move collides with border the game is lost
+
+-added logic to allow snake to change direction on keypress

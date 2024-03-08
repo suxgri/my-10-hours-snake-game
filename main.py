@@ -44,7 +44,12 @@ class MyKeyboardListener(Widget):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
+        newdirection = self.getdirectionfromnewkeypress(keycode[1])#horizontal or verical
         
+        if(newdirection != self.currentdirection):
+            self.currentdirection = newdirection
+            self.shouldmove = keycode[1]
+    
         return True
     
     def move(self,dt):
@@ -81,7 +86,15 @@ class MyKeyboardListener(Widget):
             Line(rectangle=[100, 100, 800, 800],width=3)
             self.snake = Rectangle(pos=(100,100),size=(40,40))
 
-
+    def getdirectionfromnewkeypress(self,key):
+        if key not in ['left','right','up','down']:
+            return self.currentdirection
+        
+        if key in ['left','right']:
+            return 'horizontal'
+        else:
+            return 'vertical'
+        
 if __name__ == '__main__':
     from kivy.base import runTouchApp
     runTouchApp(MyKeyboardListener())
