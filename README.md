@@ -25,4 +25,4 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 
 -added logic to allow snake to change direction on keypress
 
--introduced food to game at start, game has logic to introduced food on a free grid spot 
+-introduced food to game at start, game has logic to introduce food on a free grid spot 
