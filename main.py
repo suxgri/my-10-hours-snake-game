@@ -69,13 +69,13 @@ class MyKeyboardListener(Widget):
         
         x,y = self.snake[0].pos
 
-        if self.shouldMove == 'right' and x<840:
+        if self.shouldMove == 'right' and x<840 and [x+40,y] not in self.gridItemsOccupiedBySnake:
             self.updatesnake(x+40,y) 
-        elif self.shouldMove == 'left' and x>100:
+        elif self.shouldMove == 'left' and x>100 and [x-40,y] not in self.gridItemsOccupiedBySnake:
             self.updatesnake(x-40,y) 
-        elif self.shouldMove == 'up' and y<840: 
+        elif self.shouldMove == 'up' and y<840 and [x,y+40] not in self.gridItemsOccupiedBySnake: 
             self.updatesnake(x,y+40) 
-        elif self.shouldMove == 'down' and y>100: 
+        elif self.shouldMove == 'down' and y>100 and [x,y-40] not in self.gridItemsOccupiedBySnake: 
             self.updatesnake(x,y-40) 
         else:
             self.setLost()
@@ -145,8 +145,7 @@ class MyKeyboardListener(Widget):
                 self.food = Rectangle(pos=(self.foodPosition[0],self.foodPosition[1]),size=(40,40))
             else:
                 Color(0, 1, 0)
-                self.food = Rectangle(pos=(self.foodPosition[0],self.foodPosition[1]),size=(40,40))
-        
+                self.food = Rectangle(pos=(self.foodPosition[0],self.foodPosition[1]),size=(40,40))     
 
     def checknewpositioniscollidingwithfood(self,newx,newy):
         if newx == self.foodPosition[0] and newy == self.foodPosition[1]:

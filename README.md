@@ -36,3 +36,5 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -added score functionality
 
 -added speed up on snake/food collision
+
+-game is lost if snake collides with itself
