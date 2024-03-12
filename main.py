@@ -37,10 +37,9 @@ class MyKeyboardListener(Widget):
         with self.canvas:
             Line(rectangle = [100, 100, 800, 800],width=3)
             self.snake = Rectangle(pos=(100,100),size=(40,40))
-            foodPosition = self.newfoodposition()
+            self.foodPosition = self.newfoodposition()
             Color(0, 1, 0)
-            self.food = Rectangle(pos=(foodPosition[0],foodPosition[1]),size=(40,40))
-
+            self.food = Rectangle(pos=(self.foodPosition[0],self.foodPosition[1]),size=(40,40))
 
     def start(self,_):
     
@@ -68,16 +67,20 @@ class MyKeyboardListener(Widget):
 
         if self.shouldMove == 'right' and x<840:
             self.snake.pos = (x+40,y)
-            self.gridItemsOccupiedBySnake = [x+40,y] 
+            self.gridItemsOccupiedBySnake = [x+40,y]
+            self.updatesnake(x+40,y) 
         elif self.shouldMove == 'left' and x>100:
             self.snake.pos = (x-40,y)
             self.gridItemsOccupiedBySnake = [x-40,y] 
+            self.updatesnake(x-40,y) 
         elif self.shouldMove == 'up' and y<840:
             self.snake.pos = (x,y+40)
             self.gridItemsOccupiedBySnake = [x,y+40] 
+            self.updatesnake(x,y+40) 
         elif self.shouldMove == 'down' and y>100:
             self.snake.pos = (x,y-40)
             self.gridItemsOccupiedBySnake = [x,y-40] 
+            self.updatesnake(x,y-40) 
         else:
             self.setLost()
 
@@ -116,6 +119,18 @@ class MyKeyboardListener(Widget):
                 availables.append(element)
         return random.choice(availables)
     
+    def updatesnake(self,newx,newy):
+        
+        hasCollidedWithFood = self.checknewpositioniscollidingwithfood(newx,newy)
+
+
+    def checknewpositioniscollidingwithfood(self,newx,newy):
+        if newx == self.foodPosition[0] and newy == self.foodPosition[1]:
+            print("collision")
+            return True
+        return False
+        
+
 if __name__ == '__main__':
     from kivy.base import runTouchApp
     runTouchApp(MyKeyboardListener())
