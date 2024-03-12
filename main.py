@@ -123,6 +123,13 @@ class MyKeyboardListener(Widget):
         
         hasCollidedWithFood = self.checknewpositioniscollidingwithfood(newx,newy)
 
+        if hasCollidedWithFood:
+            print("metto fod in nuova posiz")
+            self.foodPosition = self.newfoodposition()
+            Color(0, 1, 0)
+            self.food.pos = (self.foodPosition[0],self.foodPosition[1])
+            
+
 
     def checknewpositioniscollidingwithfood(self,newx,newy):
         if newx == self.foodPosition[0] and newy == self.foodPosition[1]:

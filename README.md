@@ -28,3 +28,5 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -introduced food to game at start, game has logic to introduce food on a free grid spot 
 
 -detect snake/food collision
+
+-re-draw food on new free grid spot after collision
