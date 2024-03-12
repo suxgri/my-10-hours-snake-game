@@ -34,3 +34,5 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -added logic to increase snake size on collision with food, snake was a rectangle (square) that had its position updated on every move, now it is a list of rectangles (squares), that are updated on every move and also increased in length if a snake/food collision happens.
 
 -added score functionality
+
+-added speed up on snake/food collision

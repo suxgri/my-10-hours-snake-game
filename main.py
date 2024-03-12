@@ -120,6 +120,7 @@ class MyKeyboardListener(Widget):
         hasCollidedWithFood = self.checknewpositioniscollidingwithfood(newx,newy)
 
         hasCollidedWithFood and self.increaseScore()
+        hasCollidedWithFood and self.speedUpSnake()
 
         self.updateSnakePosition(newx,newy,hasCollidedWithFood)
 
@@ -170,6 +171,11 @@ class MyKeyboardListener(Widget):
       
     def increaseScore(self):
         self.score = self.score + 1
+
+    def speedUpSnake(self):
+        self.interval = self.interval - 0.003
+        Clock.unschedule(self.timer)
+        self.timer = Clock.schedule_interval(self.move, self.interval)
 
 if __name__ == '__main__':
     from kivy.base import runTouchApp
