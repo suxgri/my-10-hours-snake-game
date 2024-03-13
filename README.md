@@ -40,3 +40,10 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -game is lost if snake collides with itself
 
 -added redrawcanvas function to remove code duplication
+
+A FEW THOUGHTS:
+The game lacks a winning mechanism at the moment, it could be easily added when there are no more free spots on the grid to add food.
+The snake starting position and movement direction could be randomized at the start of the game.
+The canvas is re-drawn on every update (snake movement), this is inefficient, i am sure there are better methods that i did not look for.
+Variable and function naming could always be better.
+
