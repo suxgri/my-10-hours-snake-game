@@ -38,3 +38,5 @@ At the moment the hardcoded right direction is applied every n seconds to the sn
 -added speed up on snake/food collision
 
 -game is lost if snake collides with itself
+
+-added redrawcanvas function to remove code duplication
